@@ -1,1 +1,70 @@
-<p>login works!</p>
+<div class="wrapper">
+    <mat-card>
+        <img 
+            mat-card-image
+            id="profile-img"
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="This is a profile avatar"
+            width="250"
+            class="profile-img-card"
+        />
+        <mat-card-content>
+            <form
+                *ngIf="!isLoggedIn"
+                name="form"
+                (ngSubmit)="f.form.valid && onSubmit()"
+                #f="ngForm"
+                novalidate
+            >
+                <mat-form-field>
+                    <mat-label for="username">Username</mat-label>
+                    <input
+                        type="text"
+                        name="username"
+                        [(ngModel)]="form.username"
+                        required
+                        #username="ngModel"
+                        matInput
+                    />
+                    <div *ngIf="username.errors && f.submitted">
+                        <mat-error *ngIf="username.errors?.['required']">Username is required</mat-error>
+                    </div>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="password">Password</mat-label>
+                    <input
+                        type="password"
+                        name="password"
+                        [(ngModel)]="form.password"
+                        required
+                        minlength="6"
+                        #password="ngModel"
+                        matInput
+                    />
+                    <div *ngIf="password.errors && f.submitted">
+                        <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+                        <mat-error *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</mat-error>
+                    </div>
+                </mat-form-field>
+
+                <mat-card-footer>
+                    <mat-card-actions>
+                        <button type="button" mat-raised-button color="primary">Login</button>
+                    </mat-card-actions>
+                    <span class="register">
+                        Don't have an account? <a routerLink="/register">Register</a>
+                    </span>
+                </mat-card-footer>
+
+                <mat-error class="form-error" *ngIf="f.submitted && isLoginFailed">
+                    Login failed!<br />{{ errorMessage }}
+                </mat-error>
+
+            </form>
+
+            <div class="success" *ngIf="isLoggedIn">
+                Logged in as {{roles}}.
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

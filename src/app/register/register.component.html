@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
     <mat-card>
         <img 
             mat-card-image
@@ -67,17 +67,22 @@
                     </div>
                 </mat-form-field>
 
-                <div mat-card-actions>
-                    <button mat-raised-button color="primary">Sign Up</button>
-                </div>
+                <mat-card-footer>
+                    <mat-card-actions>
+                        <button type="button" mat-raised-button color="primary">Sign Up</button>
+                    </mat-card-actions>
+                    <span class="existing">
+                        Already have an account? <a routerLink="/login">Login</a>
+                    </span>
+                </mat-card-footer>
 
-                <mat-error *ngIf="f.submitted && isSignUpFailed">
+                <mat-error class="form-error" *ngIf="f.submitted && isSignUpFailed">
                     Signup failed!<br />{{ errorMessage }}
                 </mat-error>
 
             </form>
 
-            <div *ngIf="isSuccessful">
+            <div class="success" *ngIf="isSuccessful">
                 Your registration is successful!
             </div>
         </mat-card-content>

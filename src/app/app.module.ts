@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     BoardModeratorComponent,
     BoardUserComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSidenavModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

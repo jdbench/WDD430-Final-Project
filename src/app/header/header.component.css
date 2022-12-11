@@ -6,6 +6,15 @@
     max-width: 1600px;
     margin: 0 auto;
 }
+.boards{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+.user-auth{
+    display: flex;
+    column-gap: 1rem;
+}
 .dropdown{
     list-style-type: none;
 }

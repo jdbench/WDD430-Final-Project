@@ -1,13 +1,38 @@
-form {
-  display: flex;
-  flex-direction: column;
-}
-.profile-img-card {
-    padding: 15px;
-    margin: 0 auto;
+.wrapper {
+  padding: 4rem;
 }
 mat-card {
     max-width: 500px;
     padding: 2em;
     margin: 0 auto;
+}
+img {
+    border-radius: 50% !important;
+    padding: 15px;
+    margin: 0 auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+mat-card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.existing {
+  color: #d3d3d3;
+  font-size: medium;
+  margin-top: 1.2rem;
+}
+.existing a {
+  color: #c2175b;
+}
+.form-error {
+  font-size: large;
+  margin-top: 1.2rem;
+}
+.success {
+  color: #729b81;
+  font-size: large;
+  margin-top: 1.2rem;
 }

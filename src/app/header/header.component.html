@@ -1,17 +1,43 @@
 <mat-toolbar color="primary">
   <div class="flex">
     <span>
-      <a mat-button routerLink="/">Marketfy</a>
+      <a mat-button routerLink=""> Marketfy </a>
     </span>
+    <ul class="boards" routerLinkActive="active">
+      <li *ngIf="showAdminBoard">
+        <a href="/admin" routerLink="admin"> Admin Board </a>
+      </li>
+      <li *ngIf="showModeratorBoard">
+        <a href="/mod" routerLink="mod"> Moderator Board </a>
+      </li>
+      <li>
+        <a href="/user" *ngIf="isLoggedIn" routerLink="user">
+          User
+        </a>
+      </li>
+    </ul>
     <ul>
-        <li class="dropdown" appDropdown>
-            <a mat-fab appUserDropdown ngClick="dropdown()"><mat-icon>person</mat-icon></a>
-            <ul class="dropdown-menu">
-                <li *ngFor = "let item of dropdownItems">
-                    <a [id]="[item.linkId]" [routerLink]="item.linkUrl" [routerLinkActive]="['active-link']">{{item.linkName}}</a>
-                </li>
-            </ul>
-        </li>
+      <li class="dropdown" appDropdown>
+        <a *ngIf="isLoggedIn" mat-fab class="dropdown-toggle" role="button">
+          <mat-icon>person</mat-icon>
+        </a>
+        <div *ngIf="!isLoggedIn" class="user-auth">
+          <a mat-flat-button color="primary" routerLink="register">
+            Register
+          </a>
+          <a mat-flat-button color="primary" routerLink="login"> Login </a>
+        </div>
+        <ul class="dropdown-menu">
+          <li *ngFor="let item of dropdownItems">
+            <a
+              [id]="[item.linkId]"
+              [routerLink]="item.linkUrl"
+              [routerLinkActive]="['active-link']"
+              >{{ item.linkName }}</a
+            >
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </mat-toolbar>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,20 +7,20 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  loggedIn;
+  @Input() isLoggedIn: boolean = false;
+  @Input() showAdminBoard: boolean = false;
+  @Input() showModeratorBoard: boolean = false; 
 
-  dropdownItems = true ? [
-    {linkId: "loginLink", linkName: 'Login', linkUrl: '/login'},
-    {linkId: "registerLink", linkName: 'Register', linkUrl: '/register'},
-  ]:[
+  dropdownItems = [
     {linkId: "logoutLink", linkName: 'Logout', linkUrl: '/logout'},
   ];
   
-  constructor() {
-    this.loggedIn = false;
-  }
+  constructor() {  }
   
   dropdown():void {
-
+    const dropdownMenu = document.getElementsByClassName("dropdown-menu")[0];
+    dropdownMenu.classList.contains("open") ? 
+    dropdownMenu.classList.remove("open")
+    : dropdownMenu.classList.add("open");
   }
 }
