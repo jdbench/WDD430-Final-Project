@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+.profile-img-card {
+    padding: 15px;
+    margin: 0 auto;
+}
+mat-card {
+    max-width: 500px;
+    padding: 2em;
+    margin: 0 auto;
+}
