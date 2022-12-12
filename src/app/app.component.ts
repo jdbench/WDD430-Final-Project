@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
-  title = 'Marketfy';
+  title = 'Calendarify';
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
