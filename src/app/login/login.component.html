@@ -17,13 +17,14 @@
                 novalidate
             >
                 <mat-form-field>
-                    <mat-label for="username">Username</mat-label>
+                    <mat-label id="username-label" for="username">Username</mat-label>
                     <input
                         type="text"
                         name="username"
                         [(ngModel)]="form.username"
                         required
                         #username="ngModel"
+                        aria-labelledby="username-label"
                         matInput
                     />
                     <div *ngIf="username.errors && f.submitted">
@@ -31,7 +32,7 @@
                     </div>
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label for="password">Password</mat-label>
+                    <mat-label id="password-label" for="password">Password</mat-label>
                     <input
                         type="password"
                         name="password"
@@ -39,6 +40,7 @@
                         required
                         minlength="6"
                         #password="ngModel"
+                        aria-labelledby="password-label"
                         matInput
                     />
                     <div *ngIf="password.errors && f.submitted">
