@@ -29,7 +29,6 @@ export class AuthService {
   };
 
   delete(_id: string): Observable<any> {
-    console.log(_id);
     return this.http.delete(`/user/delete/${_id}`);
   }
 }

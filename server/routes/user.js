@@ -119,7 +119,6 @@ router.put("/update", (req, res, next) => {
 router.delete("/delete/:id", (req, res, next) => {
   User.findOne({ _id: req.params.id })
     .then((user) => {
-      console.log(user);
       user
         .deleteOne({ _id: req.params.id })
         .then(() => {

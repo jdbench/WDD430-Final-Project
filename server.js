@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-mongoose.connect('mongodb+srv://jdbench:Pudgymcstudly99!@calendarify.bdpjyqf.mongodb.net/calendarify?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('error', console.error.bind(console, 'Database connection error:'));
 mongoose.connection.once('open', function () {
   console.info('Successfully connected to the database');

@@ -20,7 +20,6 @@ export class UserComponent implements OnInit {
   }
 
   delete() {
-    console.log(this.currentUser._id);
     this.auth.delete(this.currentUser._id)
       .subscribe({
         next: () => {
