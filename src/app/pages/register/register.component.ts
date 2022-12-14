@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
         this.reloadPage();
       },
       error: (err) => {
-        console.log(err);
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
@@ -54,7 +53,7 @@ export class RegisterComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
-  
+
   userLoggedIn(value: boolean) {
     this.loginChange.emit(value);
   }
