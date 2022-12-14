@@ -3,19 +3,37 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const mongoose = require('mongoose');
-const routes = require('./server/routes');
 const app = express();
+const index = require('./server/routes/app');
+const userRoutes = require('./server/routes/user');
+const eventRoutes = require('./server/routes/event');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/api', routes);
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+  );
+  next();
 });
-mongoose.connect('mongodb://127.0.0.1:27017/mean_tutorial');
+mongoose.connect('mongodb+srv://jdbench:Pudgymcstudly99!@calendarify.bdpjyqf.mongodb.net/calendarify?retryWrites=true&w=majority');
 mongoose.connection.on('error', console.error.bind(console, 'Database connection error:'));
 mongoose.connection.once('open', function () {
   console.info('Successfully connected to the database');
+});
+app.use(express.static(path.join(__dirname, 'dist/wdd430-final-project')));
+app.use("/node_modules", express.static('node_modules'));
+app.use('/', index);
+app.use('/user', userRoutes);
+app.use('/event', eventRoutes);
+app.get('*', function (req, res) {
+  res.render('index.html');
 });
 const port = process.env.PORT || '3000';
 app.set('port', port);

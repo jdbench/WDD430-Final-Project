@@ -1,10 +1,8 @@
 <app-header
   [isLoggedIn] = "isLoggedIn"
-  [showAdminBoard] = "showAdminBoard"
-  [showModeratorBoard] = "showModeratorBoard"
 ></app-header>
 <div class="content">
   <app-sidenav></app-sidenav>
-  <router-outlet></router-outlet>
+  <router-outlet (loginChange)="userLoggedIn($event)"></router-outlet>
 </div>
 <app-footer></app-footer>

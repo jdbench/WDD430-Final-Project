@@ -9,22 +9,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { DropdownDirective } from './directives/dropdown.directive';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardUserComponent } from './board-user/board-user.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { UserComponent } from './pages/user/user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { EventComponent } from './event/event.component';
+import { EditComponent } from './pages/user/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +35,12 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     DropdownDirective,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
-    BoardAdminComponent,
-    BoardModeratorComponent,
-    BoardUserComponent,
+    UserComponent,
     DashboardComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    EventComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +54,14 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatAutocompleteModule,
+    MatMenuModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

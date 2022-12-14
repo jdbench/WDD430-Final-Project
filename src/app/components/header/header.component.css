@@ -1,0 +1,22 @@
+.flex{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.user-auth{
+    display: flex;
+    column-gap: 1rem;
+}
+.dropdown{
+    list-style-type: none;
+}
+.dropdown-menu{
+    list-style-type: none;
+}
+.open{
+    display: flex;
+    flex-direction: column;
+}

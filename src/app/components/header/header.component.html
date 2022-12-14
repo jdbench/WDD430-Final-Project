@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <div class="flex">
+    <span>
+      <a mat-button routerLink=""> Calendarify </a>
+    </span>
+    <ul>
+      <li class="dropdown">
+        <a *ngIf="isLoggedIn" mat-fab [matMenuTriggerFor]="dropdown">
+          <mat-icon>person</mat-icon>
+        </a>
+        <div *ngIf="!isLoggedIn"  class="user-auth">
+          <a mat-flat-button color="primary" routerLink="register">
+            Register
+          </a>
+          <a mat-flat-button color="primary" routerLink="login"> Login </a>
+        </div>
+        <mat-menu #dropdown="matMenu" >
+            <a *ngFor="let item of dropdownItems"
+              mat-menu-item
+              [id]="[item.linkId]"
+              [routerLink]="item.linkUrl"
+              [routerLinkActive]="['active-link']"
+              >{{ item.linkName }}
+            </a>
+            <a 
+              mat-menu-item
+              id="logoutLink"
+              (click)="logout()"
+            >
+              Logout
+            </a>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
