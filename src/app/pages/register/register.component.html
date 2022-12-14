@@ -89,22 +89,22 @@
                 Sign Up
               </button>
             </mat-card-actions>
-            <span class="existing">
+            <p class="existing">
               Already have an account? <a routerLink="/login">Login</a>
-            </span>
+            </p>
           </mat-card-footer>
 
           <mat-error class="form-error" *ngIf="f.submitted && isSignUpFailed">
-            Signup failed!<br />&nbsp;{{ errorMessage }}
+            <p>Signup failed!<br />&nbsp;{{ errorMessage }}</p>
           </mat-error>
         </form>
 
         <div class="success" *ngIf="isSuccessful">
-          Your registration is successful!
+          <p>Your registration is successful!</p>
         </div>
       </div>
       <div class="success" *ngIf="isLoggedIn">
-        Logged in as {{ this.username }}.
+        <p>Logged in as {{ this.username }}.</p>
       </div>
     </mat-card-content>
   </mat-card>

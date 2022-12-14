@@ -9,7 +9,7 @@ import { EditComponent as EventEditComponent } from './event/edit/edit.component
 import { EditComponent as UserEditComponent } from './pages/user/edit/edit.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, pathMatch: 'full' },
+  { path: '', redirectTo: "profile", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: UserComponent, children: [

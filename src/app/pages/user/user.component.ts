@@ -10,9 +10,11 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class UserComponent implements OnInit {
   currentUser: any;
   errorMessage = '';
+  isLoggedOut: boolean;
 
   constructor(private token: TokenStorageService, private auth: AuthService) {
     this.currentUser = this.token.getUser();
+    this.isLoggedOut = !!this.token.getToken() && this.token.getToken() !== "undefined";
    }
 
   ngOnInit(): void {

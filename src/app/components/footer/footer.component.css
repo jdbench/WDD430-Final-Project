@@ -1,6 +1,13 @@
 mat-toolbar {
-    position: absolute;
+    position: relative;
     top: 1;
     bottom: 0;
     justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+    p{
+        font-size: 1rem;   
+    }     
 }

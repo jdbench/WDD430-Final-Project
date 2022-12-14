@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 4rem;
+    padding: 4em;
   }
   mat-card {
       max-width: 500px;
@@ -10,29 +10,24 @@
       border-radius: 50% !important;
       padding: 15px;
       margin: 0 auto;
+      width: 100%;
+      max-width: 15em;
   }
   form {
     display: flex;
     flex-direction: column;
   }
-  mat-card-footer {
-    display: flex;
-    justify-content: space-between;
-  }
   .register {
     color: #d3d3d3;
-    font-size: medium;
-    margin-top: 1.2rem;
+    margin-top: 1.2em;
   }
   .register a {
     color: #c2175b;
   }
   .form-error {
-    font-size: large;
-    margin-top: 1.2rem;
+    margin-top: 1.2em;
   }
   .success {
     color: #729b81;
-    font-size: large;
-    margin-top: 1.2rem;
+    margin-top: 1.2em;
   }

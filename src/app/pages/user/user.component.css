@@ -1,2 +1,20 @@
-.jumbotron {
+.content {
+    padding: 4em;
+}
+mat-card {
+  color: #d3d3d3;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2em; 
+  line-height: 2em;
+}
+mat-card-header {
+    margin-bottom: 2em;
+}
+mat-card-content {
+    margin-bottom: 2em;
+}
+h1{
+    text-align: center;
+    line-height: 2em;
 }

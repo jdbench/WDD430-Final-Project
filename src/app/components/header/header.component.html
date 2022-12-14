@@ -5,7 +5,7 @@
     </span>
     <ul>
       <li class="dropdown">
-        <a *ngIf="isLoggedIn" mat-fab [matMenuTriggerFor]="dropdown">
+        <a id="icon" *ngIf="isLoggedIn" mat-fab [matMenuTriggerFor]="dropdown">
           <mat-icon>person</mat-icon>
         </a>
         <div *ngIf="!isLoggedIn"  class="user-auth">
