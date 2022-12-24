@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/43e9a5fd-64af-4731-b7ef-8cb4fae7d125/AppServices/subscriptions/43e9a5fd-64af-4731-b7ef-8cb4fae7d125/resourceGroups/calendarify_group/providers/Microsoft.Web/sites/caledarify-prod",
+    "appService.deploySubpath": "."
+}
